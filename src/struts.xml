@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="login" class="com.action.UserAction" method="login">
+			<result name="success">main.jsp</result>
+			<result name="login">index.jsp</result>
+		</action>
+
+		<action name="uploaduser" class="com.action.UserAction" method="upload">
+			<param name="savePath">F:\uploadfile</param>
+			<result name="success">uploaduser.jsp?updatesuccess=1</result>
+			<result name="error">uploaduser.jsp?updatesuccess=2</result>
+		</action>
+
+		<action name="usershow" class="com.action.UserAction" method="userShow">
+		</action>
+
+		<action name="updatepass" class="com.action.UserAction" method="updatepass">
+			<result name="success">updatepsw.jsp?updatesuccess=1</result>
+			<result name="login">index.jsp?updatesuccess=2</result>
+		</action>
+
+		<action name="logout" class="com.action.UserAction" method="logout">
+			<result name="success">index.jsp</result>
+		</action>
+
+		<action name="search" class="com.action.RenyuanAction" method="search">
+		</action>
+
+		<action name="lindaoshow" class="com.action.RenyuanAction"
+			method="lindaoshow">
+		</action>
+
+		<action name="jieguoshow" class="com.action.RenyuanAction"
+			method="jieguoshow">
+		</action>
+
+		<action name="xinzengshow" class="com.action.RenyuanAction"
+			method="chushenshow">
+		</action>
+
+		<action name="daibanshow" class="com.action.RenyuanAction"
+			method="daibanshow">
+		</action>
+
+		<action name="remove" class="com.action.RenyuanAction" method="remove">
+		</action>
+
+		<action name="submit" class="com.action.RenyuanAction" method="submit">
+		</action>
+
+		<action name="rollback" class="com.action.RenyuanAction"
+			method="rollback">
+		</action>
+
+		<action name="guidang" class="com.action.RenyuanAction" method="guidang">
+		</action>
+
+		<action name="lindaorollback" class="com.action.RenyuanAction"
+			method="lindaorollback">
+		</action>
+
+		<action name="lindaoshenhe" class="com.action.RenyuanAction"
+			method="lindaoshenhe">
+		</action>
+
+		<action name="xinzengshenhe" class="com.action.RenyuanAction"
+			method="xinzengshenhe">
+		</action>
+
+		<action name="showinfo" class="com.action.RenyuanAction"
+			method="showinfo">
+		</action>
+
+		<action name="upload" class="com.action.RenyuanAction" method="upload">
+			<param name="savePath">F:\uploadfile</param>
+			<result name="success">upload.jsp?updatesuccess=1</result>
+			<result name="error">upload.jsp?updatesuccess=2</result>
+		</action>
+
+		<action name="daochu" class="com.action.RenyuanAction" method="daochu">
+			<param name="savePath">E:\uploadfile\downloadfile.xls</param>
+			<!-- 下载导出excle -->
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+				<param name="inputName">excelFile</param>
+			</result>
+		</action>
+	</package>
+
+	<constant name="struts.objectFactory.spring.autoWire" value="name" />
+
+</struts>
